@@ -55,7 +55,6 @@ while (tentativasnum > 1) :
     print("Restam ", tentativasnum, " tentativas")
 
     
-    
 if '_' in palavraSecretaCheck:
     print("Suas tentativas acabaram, tente novamente.")
     
