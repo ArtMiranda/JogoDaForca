@@ -1,9 +1,14 @@
-import os
+import os, random
 
 def clear():
     os.system('cls' if os.name=='nt' else 'clear')
 
-palavraSecreta = input("Digite a palavra secreta: ").upper()
+with open("palavras.txt", "r") as arquivoPalavras:
+    linhas = arquivoPalavras.readlines()
+    stringpalavras = " ".join(linhas)
+    listaPalavras = stringpalavras.split()
+
+palavraSecreta = random.choice(listaPalavras).upper()
 
 tentativas = []
 palavraSecretaList = list(palavraSecreta)
@@ -36,7 +41,7 @@ while (tentativasnum > 1) :
 
 
         if '_' not in palavraSecretaCheck:
-            print("Parabéns!, a palavra secreta era", palavraSecreta)
+            print(f"Parabéns!, a palavra secreta era {palavraSecreta}")
             break
     
     if letraTentada not in palavraSecretaList :
@@ -58,8 +63,8 @@ while (tentativasnum > 1) :
         tentativasErradas.append(letraTentada)
 
     print(" ")
-    print("Restam ", tentativasnum, " tentativas")
-    print("Tentativas erradas: ", tentativasErradas)
+    print(f"Restam {tentativasnum} tentativas")
+    print(f"Tentativas erradas: {tentativasErradas}")
 
 
 if '_' in palavraSecretaCheck:
