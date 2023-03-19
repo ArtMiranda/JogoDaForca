@@ -8,6 +8,7 @@ palavraSecreta = input("Digite a palavra secreta: ").upper()
 tentativas = []
 palavraSecretaList = list(palavraSecreta)
 palavraSecretaCheck = []
+tentativasErradas = []
 
 for elemento in palavraSecretaList:
     if elemento == " ":
@@ -17,8 +18,6 @@ for elemento in palavraSecretaList:
         
 tentativasnum = 8
 preliminar = ""
-
-print(palavraSecretaList)
 
 for i, letra in enumerate(palavraSecretaCheck) :
     print (preliminar + palavraSecretaCheck[i], end=" ")
@@ -56,9 +55,11 @@ while (tentativasnum > 1) :
     if (correto == 0) :
         print (" ")
         print("Letra incorreta.")
+        tentativasErradas.append(letraTentada)
 
     print(" ")
     print("Restam ", tentativasnum, " tentativas")
+    print("Tentativas erradas: ", tentativasErradas)
 
 
 if '_' in palavraSecretaCheck:
