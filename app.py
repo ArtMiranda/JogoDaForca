@@ -1,4 +1,6 @@
 import os, random
+from termcolor import colored
+from unidecode import unidecode
 
 def clear():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -8,7 +10,7 @@ with open("palavras.txt", "r") as arquivoPalavras:
     stringpalavras = " ".join(linhas)
     listaPalavras = stringpalavras.split()
 
-palavraSecreta = random.choice(listaPalavras).upper()
+palavraSecreta = unidecode(random.choice(listaPalavras).upper())
 
 tentativas = []
 palavraSecretaList = list(palavraSecreta)
@@ -27,7 +29,7 @@ preliminar = ""
 for i, letra in enumerate(palavraSecretaCheck) :
     print (preliminar + palavraSecretaCheck[i], end=" ")
 
-while (tentativasnum > 1) :
+while (tentativasnum >= 1) :
     print(" ")
     letraTentada = input("Digite o palpite de letra: ").upper()
     tentativas.append(letraTentada)
@@ -41,8 +43,9 @@ while (tentativasnum > 1) :
 
 
         if '_' not in palavraSecretaCheck:
-            print(f"Parabéns!, a palavra secreta era {palavraSecreta}")
+            print (colored(f"Parabéns!, a palavra secreta era {palavraSecreta}", "blue"))
             break
+
     
     if letraTentada not in palavraSecretaList :
         tentativasnum = tentativasnum - 1   
@@ -55,18 +58,23 @@ while (tentativasnum > 1) :
 
     if (correto == 1) :
         print(" ")
-        print("Letra correta!")
+        print(" ")
+        print(colored("Letra correta!", "green"))
 
     if (correto == 0) :
         print (" ")
-        print("Letra incorreta.")
+        print(" ")
+        print(colored("Letra incorreta.", "red"))
         tentativasErradas.append(letraTentada)
 
     print(" ")
     print(f"Restam {tentativasnum} tentativas")
-    print(f"Tentativas erradas: {tentativasErradas}")
+    print(colored(f"Tentativas erradas: {tentativasErradas}", "yellow"))
 
 
 if '_' in palavraSecretaCheck:
-    print("Suas tentativas acabaram, tente novamente.")
-    
+    print(colored("Suas tentativas acabaram, tente novamente.", "yellow"))
+
+if (tentativasnum < 1) :
+    clear()
+    print(colored(f"A palavra secreta era {palavraSecreta}, tente novamente!", "light_magenta"))
