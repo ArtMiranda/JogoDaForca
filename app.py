@@ -69,7 +69,7 @@ while (tentativasnum >= 1) :
     if (correto == 0) :
         print (" ")
         print (" ")
-        print(colored("Letra incorreta.", "red"))
+        print(colored("Letra incorreta.", "light_red"))
         tentativasErradas.append(letraTentada)
 
     print(f"Restam {tentativasnum} tentativas")
@@ -77,23 +77,28 @@ while (tentativasnum >= 1) :
 
 
 if '_' in palavraSecretaCheck:
-    print(" _________")   # imprime a linha superior do enforcado
+    print(" _________")   
     time.sleep(0.5)
 
-    print(" |         |")  # imprime a primeira linha vertical do enforcado
+    print(" |         |")  
     time.sleep(0.5)
 
-    print(" |         O")  # imprime a cabeça do enforcado
+    print(" |         O")  
     time.sleep(0.5)
 
-    print(" |        /|\\") # imprime os braços do enforcado
+    print(" |        /|\\") 
     time.sleep(0.5)
 
-    print(" |        / \\") # imprime as pernas do enforcado
+    print(" |        / \\") 
     time.sleep(0.5)
 
-    print("_|_")           # imprime a base do enforcado
+    print("_|_")          
+
+    print(" ")
+    print(colored("Você perdeu!", "red"))
+
     time.sleep(3)
+
 
     clear()
 
