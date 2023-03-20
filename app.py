@@ -31,6 +31,7 @@ for i, letra in enumerate(palavraSecretaCheck) :
 
 while (tentativasnum >= 1) :
     print(" ")
+    print(" ")
     letraTentada = input("Digite o palpite de letra: ").upper()
     tentativas.append(letraTentada)
 
@@ -63,11 +64,10 @@ while (tentativasnum >= 1) :
 
     if (correto == 0) :
         print (" ")
-        print(" ")
+        print (" ")
         print(colored("Letra incorreta.", "red"))
         tentativasErradas.append(letraTentada)
 
-    print(" ")
     print(f"Restam {tentativasnum} tentativas")
     print(colored(f"Tentativas erradas: {tentativasErradas}", "yellow"))
 
