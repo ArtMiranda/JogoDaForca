@@ -1,5 +1,5 @@
 # JogoDaForca
 
-Jogo da Forca em Python
+Hangman game in Python (Jogo da Forca in Portuguese)
 
-Na branch RandomWord o programa seleciona aleatóriamente uma palavra em uma lista de palavras de cinco letras em português.
+In this branch you can select the word to use in the game
